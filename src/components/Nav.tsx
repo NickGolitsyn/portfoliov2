@@ -60,8 +60,8 @@ export default function Nav() {
   const [toggled, setToggled] = useState(false)
   const matches = useMediaQuery("(min-width: 1280px)")
   return (
-    <nav className="fixed w-full px-8 mb-24 flex z-20 items-center justify-between pb-6 pt-12 font-medium md:px-16 lg:px-32">
-      <svg
+    <nav className="fixed top-0 bg-white bg-opacity-50 backdrop-blur-md w-full px-8 flex z-20 items-center justify-between pb-8 shadow-md pt-8 font-medium md:px-16 lg:px-32">
+      {/* <svg
         className="absolute bottom-0 left-1/2 -translate-x-1/2  "
         width="250"
         height="4"
@@ -78,7 +78,7 @@ export default function Nav() {
           strokeWidth="2"
           strokeLinecap="round"
         />
-      </svg>
+      </svg> */}
 
       {/* <motion.div
         animate={{ opacity: 1, x: 0 }}
