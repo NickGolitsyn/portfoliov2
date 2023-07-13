@@ -5,6 +5,8 @@ import youtube from "/youtube.png"
 import telegram from '/telegram.svg'
 import github from '/github.svg'
 import linkedin from '/linkedin.svg'
+import ng from '/NGsuperwide.svg'
+// import ng from '/NGwide.svg'
 import { motion } from "framer-motion"
 import { useState } from "react"
 import { useMediaQuery } from "../util/useMediaQuery"
@@ -49,6 +51,7 @@ const NavLinks = ({
         key={id}
         variants={isMobile ? itemMotion : itemMotionDesktop}
         href={href}
+        className={isMobile ? "text-4xl" : "text-md" }
       >
         {name}
       </motion.a>
@@ -96,8 +99,9 @@ export default function Nav() {
 
       <motion.h1 animate={{ opacity: 1, x: 0 }}
         initial={{ opacity: 0, x: -25 }}
-        transition={{ delay: 0.35 }} className="text-lg font-bold">
-        <a href="/">NG</a>
+        transition={{ delay: 0.35 }} className="text-2xl font-bold font-logo">
+        {/* <a href="/">NG</a> */}
+        <img src={ng} alt='NG' className=" h-5" />
       </motion.h1>
 
       {/* Nav Items animating in  */}
