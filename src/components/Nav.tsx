@@ -51,7 +51,7 @@ const NavLinks = ({
         key={id}
         variants={isMobile ? itemMotion : itemMotionDesktop}
         href={href}
-        className={isMobile ? "text-4xl" : "text-md" }
+        className={isMobile ? "text-4xl text-white" : "text-md text-white" }
       >
         {name}
       </motion.a>
@@ -63,7 +63,7 @@ export default function Nav() {
   const [toggled, setToggled] = useState(false)
   const matches = useMediaQuery("(min-width: 1280px)")
   return (
-    <nav className="fixed top-0 bg-white bg-opacity-50 backdrop-blur-md w-full px-8 flex z-20 items-center justify-between pb-8 shadow-md pt-8 font-medium md:px-16 lg:px-32">
+    <nav className="fixed top-0 bg-stone-800 bg-opacity-50 backdrop-blur-md w-full px-8 flex z-20 items-center justify-between pb-8 shadow-md pt-8 font-medium md:px-16 lg:px-32">
       {/* <svg
         className="absolute bottom-0 left-1/2 -translate-x-1/2  "
         width="250"
@@ -111,7 +111,7 @@ export default function Nav() {
           animate="visible"
           initial="hidden"
           className="fixed left-0 top-0  z-40 flex h-screen
-          w-full flex-col items-center  justify-center  gap-24 bg-white opacity-80 text-2xl font-bold"
+          w-full flex-col items-center  justify-center  gap-24 bg-stone-800 opacity-80 text-2xl font-bold"
         >
           <NavLinks
             className=" flex flex-col gap-24 text-lg "
@@ -142,12 +142,12 @@ export default function Nav() {
             rotateZ: toggled ? 45 : 0, 
             y: toggled ? 8 : 0, 
             width: toggled ? 24 : 24, }}
-          className="line-1 block h-0.5 w-6 bg-content bg-black"
+          className="line-1 block h-0.5 w-6 bg-content bg-white"
         ></motion.span>
 
         <motion.span
           animate={{ width: toggled ? 0 : 24 }}
-          className="line-2 block h-0.5 w-6 bg-content bg-black"
+          className="line-2 block h-0.5 w-6 bg-content bg-white"
         ></motion.span>
         <motion.span
           animate={{
@@ -155,7 +155,7 @@ export default function Nav() {
             y: toggled ? -8 : 0,
             width: toggled ? 24 : 24,
           }}
-          className="line-3 block h-0.5 w-6 bg-content bg-black"
+          className="line-3 block h-0.5 w-6 bg-content bg-white"
         ></motion.span>
       </motion.div>
     </nav>

@@ -6,7 +6,7 @@ import Card from '../components/Card.astro';
 <Layout title="Welcome to Astro.">
 	<main>
 		<h1>My name is <span class="text-gradient">Nick Golitsyn</span></h1>
-		<p class="instructions">
+		<p class="instructions bg-stone-700">
 			I am <strong>Front-end Web Developer</strong> with experience in HTML CSS & JS.<br />I graduated college in June 2023
 		</p>
 		<ul role="list" class="link-card-grid">
@@ -60,7 +60,7 @@ import Card from '../components/Card.astro';
 		line-height: 1.6;
 		margin: 1rem 0;
 		border: 1px solid rgba(var(--accent), 25%);
-		background-color: white;
+		/* background-color: #444542; */
 		padding: 1rem;
 		border-radius: 0.4rem;
 	}
@@ -74,6 +74,7 @@ import Card from '../components/Card.astro';
 	}
 	.instructions strong {
 		color: rgb(var(--accent));
+		font-family: 'Velodroma', sans-serif;
 	}
 	.link-card-grid {
 		display: grid;
