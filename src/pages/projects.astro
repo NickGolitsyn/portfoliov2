@@ -1,0 +1,81 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+---
+
+<Layout title="Projects">
+	<main>
+		<ul role="list" class="link-card-grid">
+			<Card
+				href="https://vocab-omega.vercel.app/"
+				title="Vocab."
+				body="Word of the day style website that focuses on building a users vocabulary."
+			/>
+			<Card
+				href="https://parish-nextjs-sanity.vercel.app/"
+				title="Parish Website"
+				body="Website for a Romainian Orthodox Church."
+			/>
+			<Card
+				href="https://kudrin.netlify.app/"
+				title="Sergey Kudrin"
+				body="Photo/Painting exhibition website for a photographer."
+			/>
+			<Card
+				href="https://trvl.netlify.app/"
+				title="TRVL"
+				body="Website for tourists to find out information about their travel destination."
+			/>
+		</ul>
+		<div class=" w-16 h-screen">
+
+		</div>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1.5rem;
+		max-width: 80ch;
+	}
+	h1 {
+		font-size: 2rem !important;
+		font-weight: 800 !important;
+		margin: 0 !important;
+	}
+	.text-gradient {
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+		font-family: "Velodroma", sans-serif;
+	}
+	.instructions {
+		line-height: 1.6;
+		margin: 1rem 0;
+		border: 1px solid rgba(var(--accent), 25%);
+		/* background-color: #444542; */
+		padding: 1rem;
+		border-radius: 0.4rem;
+	}
+	.instructions code {
+		font-size: 0.875em;
+		font-weight: bold;
+		background: rgba(var(--accent), 12%);
+		color: rgb(var(--accent));
+		border-radius: 4px;
+		padding: 0.3em 0.45em;
+	}
+	.instructions strong {
+		color: rgb(var(--accent));
+		font-family: 'Velodroma', sans-serif;
+	}
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 1rem;
+		padding: 0;
+	}
+</style>
