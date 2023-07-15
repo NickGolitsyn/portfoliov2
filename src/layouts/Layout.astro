@@ -27,10 +27,11 @@ const { title } = Astro.props;
 </html>
 <style is:global>
 	:root {
-		/* --accent: 124, 58, 237; */
-		--accent: 183, 248, 219;
-		/* --accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%); */
-		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #50A7C2 30%, white 60%);
+		--accent: 133, 147, 233;
+		--accent-hex: #8593e9;
+		/* --accent: 183, 248, 219; */
+		--accent-gradient: linear-gradient(45deg, var(--accent-hex), #f6a16d 20%, #ffd23d 40%, white 60%);;
+		/* --accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #50A7C2 30%, white 60%); */
 	}
 	@font-face {
 		font-family: 'Velodroma';
@@ -60,6 +61,12 @@ const { title } = Astro.props;
 		color: #fff;
 	}
 	.background-glow {
+		transform: translate(50%, 0%);
+		filter: blur(20px);
+		/* animation: rotateAnimation 20s infinite; */
+	}
+
+	img {
 		user-select: none;
 		-webkit-user-drag: none;
     user-select: none;
@@ -67,9 +74,6 @@ const { title } = Astro.props;
     -webkit-user-select: none;
     -ms-user-select: none;
 		pointer-events: none;
-		transform: translate(50%, 0%);
-		filter: blur(20px);
-		/* animation: rotateAnimation 20s infinite; */
 	}
 	@media (orientation: portrait) {
 		.background-glow {

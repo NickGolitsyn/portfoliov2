@@ -100,8 +100,9 @@ export default function Nav() {
       <motion.h1 animate={{ opacity: 1, x: 0 }}
         initial={{ opacity: 0, x: -25 }}
         transition={{ delay: 0.35 }} className="text-2xl font-bold font-logo">
-        {/* <a href="/">NG</a> */}
-        <img src={ng} alt='NG' className=" h-5" />
+        <a href="/">
+          <img src={ng} alt='NG' className=" h-5" />
+        </a>
       </motion.h1>
 
       {/* Nav Items animating in  */}

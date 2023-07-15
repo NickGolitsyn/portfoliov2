@@ -6,7 +6,11 @@ module.exports = {
 			'logo': ["Bacasime Antique", "Amatic SC"],
 			'logonew': "Chokokutai"
 		},
-		extend: {},
+		extend: {
+			colors: {
+				accent: '#8593e9',
+			},
+		},
 	},
 	plugins: [],
 }

@@ -1,11 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Form from '../components/Form';
 ---
 
-<Layout title="Home">
+<Layout title="Contact">
 	<main>
-		<h1>My name is <span class="text-gradient">Nick Golitsyn</span></h1>
+		<!-- <h1>My name is <span class="text-gradient">Nick Golitsyn</span></h1>
 		<p class="instructions bg-stone-700">
 			I am <strong>Front-end Web Developer</strong> with experience in HTML CSS & JS.<br />I graduated college in June 2023
 		</p>
@@ -30,10 +30,46 @@ import Card from '../components/Card.astro';
 				title="TRVL"
 				body="Website for tourists to find out information about their travel destination."
 			/>
-		</ul>
-		<div class=" w-16 h-screen">
-
-		</div>
+		</ul> -->
+    <!-- <Form /> -->
+    <div class="text-center">
+      <h1 class="my-3 text-3xl font-semibold text-gray-700 dark:text-gray-200">
+        Contact Me
+      </h1>
+      <p class="text-gray-400 dark:text-gray-400">
+        Fill up the form below to send me a message.
+      </p>
+    </div>
+    <div class="my-7 md:m-7">
+      <form action="https://api.web3forms.com/submit" method="POST" id="form">
+        <input type="hidden" name="access_key" value={import.meta.env.FORMS_KEY} />
+        <input type="hidden" name="subject" value="New Submission from nickgolitsyn.com" />
+        <input type="hidden" name="redirect" value="localhost:3000/contact" />
+        <input type="checkbox" name="botcheck" id="" style={{display: "none"}} />
+        <div class="mb-6">
+          <label for="name" class="block mb-2 text-sm text-stone-300 dark:text-stone-300">Full Name</label>
+          <input type="text" name="name" id="name" placeholder="John Doe" required class="w-full px-3 py-2 placeholder-stone-400 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-stone-800 dark:text-white dark:placeholder-stone-300 dark:border-stone-400 dark:focus:ring-stone-300 dark:focus:border-stone-300" />
+        </div>
+        <div class="mb-6">
+          <label for="email" class="block mb-2 text-sm text-stone-300 dark:text-stone-300">Email Address</label>
+          <input type="email" name="email" id="email" placeholder="you@company.com" required class="w-full px-3 py-2 placeholder-stone-400 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-stone-800 dark:text-white dark:placeholder-stone-300 dark:border-stone-400 dark:focus:ring-stone-300 dark:focus:border-stone-300" />
+        </div>
+        <div class="mb-6">
+          <label for="phone" class="text-sm text-stone-300 dark:text-stone-300">Phone Number</label>
+          <input type="text" name="phone" id="phone" placeholder="+1 (555) 1234-567" required class="w-full px-3 py-2 placeholder-stone-400 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-stone-800 dark:text-white dark:placeholder-stone-300 dark:border-stone-400 dark:focus:ring-stone-300 dark:focus:border-stone-300" />
+        </div>
+        <div class="mb-6">
+          <label for="message" class="block mb-2 text-sm text-stone-300 dark:text-stone-300">Your Message</label>
+          <textarea rows="5" name="message" id="message" placeholder="Your Message" class="w-full px-3 py-2 placeholder-stone-400 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-stone-800 dark:text-white dark:placeholder-stone-300 dark:border-stone-400 dark:focus:ring-stone-300 dark:focus:border-stone-300" required></textarea>
+        </div>
+        <div class="mb-6">
+          <button type="submit" class="w-full px-3 py-4 text-white bg-stone-500 rounded-md focus:bg-indigo-600 focus:outline-none">
+            Send Message
+          </button>
+        </div>
+        <p class="text-base text-center text-gray-400" id="result"></p>
+      </form>
+    </div>
 	</main>
 </Layout>
 
