@@ -3,20 +3,31 @@ export interface Props {
 	title: string;
 	body: string;
 	href: string;
+	stack: Array<Array<string>>;
 }
 
-const { href, title, body } = Astro.props;
+const { href, title, body, stack } = Astro.props;
 ---
 
 <li class="link-card bg-stone-700">
-	<a href={href} class="bg-stone-700">
-		<h2>
-			{title}
-			<span>&rarr;</span>
-		</h2>
-		<p>
-			{body}
-		</p>
+	<a href={href} class="bg-stone-700 flex flex-col justify-between gap3">
+		<div class="mb-5">
+			<h2 class="mb-1">
+				{title}
+				<span class="inline-block">&rarr;</span>
+			</h2>
+			<p>
+				{body}
+			</p>
+	</div>
+		<div class="flex flex-wrap gap-3 overflow-scroll">
+			{stack.map((innerArray) => (
+				<div class="flex gap-1 bg-stone-800 py-1 px-3 opacity-80 items-center rounded-3xl border border-stone-400">
+					<img src={innerArray[0]} alt={innerArray[1]} class="max-h-5 max-w-[1.25rem]" />
+					<p>{innerArray[1]}</p>
+				</div>
+			))}
+		</div>
 	</a>
 </li>
 <style>
@@ -25,13 +36,11 @@ const { href, title, body } = Astro.props;
 		list-style: none;
 		display: flex;
 		padding: 0.25rem;
-		/* background-color: #444542; */
 		background-image: none;
 		background-size: 400%;
 		border-radius: 0.6rem;
 		background-position: 100%;
 		transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-		/* box-shadow: 0 4px 6px -1px rgba(255, 255, 255, 0.1), 0 2px 4px -2px rgba(255, 255, 255, 0.1); */
 		box-shadow: 0 4px 6px -1px #1A3f3f46, 0 2px 4px -2px #1A3f3f46;
 	}
 
@@ -42,12 +51,10 @@ const { href, title, body } = Astro.props;
 		padding: 1rem 1.3rem;
 		border-radius: 0.35rem;
 		color: #ffffff;
-		/* background-color: #444542; */
 		opacity: 0.8;
 	}
 	h2 {
 		margin: 0;
-		/* font-size: 1.25rem !important; */
 		transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 		font-family: 'Velodroma', sans-serif;
 	}
@@ -62,5 +69,9 @@ const { href, title, body } = Astro.props;
 	}
 	.link-card:is(:hover, :focus-within) h2 {
 		color: rgb(var(--accent));
+	}
+	.link-card:is(:hover, :focus-within) span {
+		transition: all 0.5s ease-out;
+		transform: translateX(5px);
 	}
 </style>
