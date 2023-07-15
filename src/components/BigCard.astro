@@ -72,4 +72,9 @@ const { href, title, body, stack } = Astro.props;
 		transition: transform 0.5s ease-out;
 		transform: translateX(5px);
 	}
+	@media only screen and (max-width: 773px) {
+		.link-card {
+			aspect-ratio: auto;
+		}
+	}
 </style>
