@@ -20,7 +20,7 @@ const { title } = Astro.props;
 	</head>
 	<body>
 		<Nav client:load />
-		<img src={glow} alt="glow" class="background-glow right-1/2 top-0 absolute mix-blend-hard-light" />
+		<img src={glow} alt="glow" class=" -z-10 background-glow right-1/2 top-0 absolute mix-blend-hard-light" />
 		<div class="mb-24"></div>
 		<slot />
 	</body>
@@ -81,5 +81,15 @@ const { title } = Astro.props;
 			top: 9rem !important;
 			height: 100vw;
 		}
+	}
+	.project-content p {
+    text-indent: 2em;
+  }
+	.project-content * {
+		margin: 1rem 0;
+	}
+	.project-content img {
+		margin: 2rem 0;
+		border-radius: 0.5rem;
 	}
 </style>

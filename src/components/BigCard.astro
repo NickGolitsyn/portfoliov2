@@ -10,7 +10,7 @@ const { href, title, body, stack } = Astro.props;
 ---
 
 <li class="link-card bg-stone-700">
-	<a href={href} class="bg-stone-700 flex flex-col justify-between gap3">
+	<a href={`/project/${href}`} class="bg-stone-700 flex flex-col justify-between gap3">
 		<div class="mb-5">
 			<h2 class="mb-1">
 				{title}

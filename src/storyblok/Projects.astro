@@ -1,0 +1,10 @@
+---
+import { storyblokEditable, renderRichText } from '@storyblok/astro'
+
+const { blok } = Astro.props
+---
+
+<div {...storyblokEditable(blok)}>
+  <h1>{blok.project.title}</h1>
+  <p>{blok.project.description}</p>
+</div>

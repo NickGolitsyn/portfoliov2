@@ -63,7 +63,7 @@ export default function Nav() {
   const [toggled, setToggled] = useState(false)
   const matches = useMediaQuery("(min-width: 1280px)")
   return (
-    <nav className="fixed top-0 bg-stone-800 bg-opacity-50 backdrop-blur-md w-full px-8 flex z-20 items-center justify-between pb-8 shadow-md pt-8 font-medium md:px-16 lg:px-32">
+    <nav className="h-24 fixed top-0 bg-stone-800 bg-opacity-50 backdrop-blur-md w-full px-8 flex z-20 items-center justify-between pb-8 shadow-md pt-8 font-medium md:px-16 lg:px-32">
       {/* <svg
         className="absolute bottom-0 left-1/2 -translate-x-1/2  "
         width="250"

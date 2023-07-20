@@ -1,0 +1,14 @@
+---
+import { storyblokEditable } from '@storyblok/astro'
+import BigCard from '../components/BigCard.astro';
+ 
+const { blok } = Astro.props
+---
+
+<BigCard
+  {...storyblokEditable(blok)}
+  href={blok.slug}
+  title={blok.title}
+  body={blok.description}
+  stack={blok.stack}
+/>

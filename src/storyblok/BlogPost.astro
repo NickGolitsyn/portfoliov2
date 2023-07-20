@@ -1,0 +1,32 @@
+---
+import { storyblokEditable, renderRichText } from '@storyblok/astro'
+import ProjNav from '../components/ProjNav'
+
+const { blok } = Astro.props
+const content = renderRichText(blok.content)
+
+---
+<ProjNav link={blok.link.url} client:load />
+<main {...storyblokEditable(blok)}>
+  <h1 class="font-bold text-7xl text-right mb-5">{blok.title}</h1>
+  <p class="text-right max-w-md ml-auto text-xl font-medium">{blok.description}</p>
+  <div class="flex flex-wrap gap-3 justify-end my-5">
+    {blok.stack.map((item) => (
+      <div class="flex gap-1 bg-stone-800 py-1 px-3 opacity-100 items-center rounded-3xl border border-stone-400">
+        <img src={`/logos/${item.toLowerCase()}.svg`} alt={item} class="max-h-5 max-w-[1.25rem]" />
+        <p>{item}</p>
+      </div>
+    ))}
+  </div>
+  <div class="project-content" set:html={content} />
+</main>
+
+<style>
+  main {
+		margin: auto;
+		padding: 1.5rem;
+		max-width: 80ch;
+	}
+  /* Styles for  */
+	
+</style>

@@ -1,79 +1,20 @@
 ---
+import { useStoryblokApi } from '@storyblok/astro'
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 import Layout from '../layouts/Layout.astro';
-import BigCard from '../components/BigCard.astro';
----
 
+const storyblokApi = useStoryblokApi()
+
+const { data } = await storyblokApi.get("cdn/stories/projects", {
+  version: import.meta.env.DEV ? "draft" : "published",
+});
+
+const content = data.story.content;
+---
 <Layout title="Projects">
-	<main>
-		<ul role="list" class="link-card-grid">
-			<BigCard
-				href="https://vocab-omega.vercel.app/"
-				title="Vocab."
-				body="Word of the day style website that focuses on building a users vocabulary."
-				stack={["NextJS", "Firebase", "Tailwind"]}
-			/>
-			<BigCard
-				href="https://parish-nextjs-sanity.vercel.app/"
-				title="Parish Website"
-				body="Website for a Romainian Orthodox Church."
-				stack={["NextJS", "Sanity", "Tailwind"]}
-			/>
-			<BigCard
-				href="https://kudrin.netlify.app/"
-				title="Sergey Kudrin"
-				body="Photo/Painting exhibition website for a photographer."
-				stack={["HTML", "CSS", "JavaScript"]}
-			/>
-			<BigCard
-				href="https://trvl.netlify.app/"
-				title="TRVL"
-				body="Website for tourists to find out information about their travel destination."
-				stack={["HTML", "CSS", "JavaScript"]}
-			/>
-			<BigCard
-				href="https://trvl.netlify.app/"
-				title="Countdown"
-				body="Website for tourists to find out information about their travel destination."
-				stack={["React"]}
-			/>
-			<BigCard
-				href="https://trvl.netlify.app/"
-				title="Vertushka"
-				body="Website for tourists to find out information about their travel destination."
-				stack={["HTML", "CSS", "JavaScript", "PWA"]}
-			/>
-			<BigCard
-				href="https://oneblog-six.vercel.app/"
-				title="OneBlog"
-				body="Website for tourists to find out information about their travel destination."
-				stack={["NextJS", "Hygraph"]}
-			/>
-			<BigCard
-				href="https://oneblog-six.vercel.app/"
-				title="Password Encrypter"
-				body="Website for tourists to find out information about their travel destination."
-				stack={["React"]}
-			/>
-			<BigCard
-				href="https://oneblog-six.vercel.app/"
-				title="Recipe Book"
-				body="Website for tourists to find out information about their travel destination."
-				stack={["React Native", "Expo"]}
-			/>
-			<BigCard
-				href="https://oneblog-six.vercel.app/"
-				title="Recipe Book"
-				body="Website for tourists to find out information about their travel destination."
-				stack={["Flutter", "Dart"]}
-			/>
-			<BigCard
-				href="https://oneblog-six.vercel.app/"
-				title="Gleb's Cards"
-				body="Website for tourists to find out information about their travel destination."
-				stack={["HTML", "CSS", "JavaScript"]}
-			/>
-		</ul>
-	</main>
+  <main>
+      <StoryblokComponent blok={content} />
+  </main>
 </Layout>
 
 <style>
