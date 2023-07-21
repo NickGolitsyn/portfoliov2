@@ -12,6 +12,7 @@ export async function getStaticPaths() {
   });
 
   const stories = Object.values(data.stories);
+  console.log(stories);
 
   return stories.map((story) => {
     return {
