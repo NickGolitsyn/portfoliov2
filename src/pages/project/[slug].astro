@@ -2,32 +2,44 @@
 import { useStoryblokApi } from '@storyblok/astro'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 import Layout from '../../layouts/Layout.astro';
+import { version } from 'vite';
 
-export async function getStaticPaths() {
-  const sbApi = useStoryblokApi();
+// export async function getStaticPaths() {
+//   const sbApi = useStoryblokApi();
 
-  const { data } = await sbApi.get("cdn/stories", {
-    content_type: "blogPost",
+//   const { data } = await sbApi.get("cdn/stories", {
+//     content_type: "blogPost",
+//     version: import.meta.env.DEV ? "draft" : "published",
+//   });
+
+//   const stories = Object.values(data.stories);
+
+//   return stories.map((story) => {
+//     return {
+//       params: { slug: story.slug },
+//     };
+//   });
+// }
+
+// const sbApi = useStoryblokApi();
+// const { slug } = Astro.params;
+// const { data } = await sbApi.get(`cdn/stories/project/${slug}`, {
+//   version: import.meta.env.DEV ? "draft" : "published",
+// });
+
+// const content = data.story.content;
+
+const storyblokApi = useStoryblokApi()
+const slug = Astro.params.slug;
+let content;
+try {
+  const { data } = await storyblokApi.get(`cdn/stories/project/${slug}`, {
     version: import.meta.env.DEV ? "draft" : "published",
   });
-
-  const stories = Object.values(data.stories);
-
-  return stories.map((story) => {
-    return {
-      params: { slug: story.slug },
-      revalidate: 60,
-    };
-  });
+  content = data.story.content
+} catch (error) {
+  return Astro.redirect('/404')
 }
-
-const sbApi = useStoryblokApi();
-const { slug } = Astro.params;
-const { data } = await sbApi.get(`cdn/stories/project/${slug}`, {
-  version: import.meta.env.DEV ? "draft" : "published",
-});
-
-const content = data.story.content;
 
 ---
 <Layout title="Blog">
