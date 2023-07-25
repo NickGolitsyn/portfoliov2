@@ -64,39 +64,6 @@ export default function Nav() {
   const matches = useMediaQuery("(min-width: 1280px)")
   return (
     <nav className="h-24 fixed top-0 bg-stone-800 bg-opacity-50 backdrop-blur-md w-full px-8 flex z-20 items-center justify-between pb-8 shadow-md pt-8 font-medium md:px-16 lg:px-32">
-      {/* <svg
-        className="absolute bottom-0 left-1/2 -translate-x-1/2  "
-        width="250"
-        height="4"
-        viewBox="0 0 250 4"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <motion.path
-          animate={{ pathLength: 1, opacity: 1 }}
-          initial={{ pathLength: 0, opacity: 0 }}
-          transition={{ delay: 1, duration: 0.75 }}
-          d="M2 2L428 1.99996"
-          stroke="#282828"
-          strokeWidth="2"
-          strokeLinecap="round"
-        />
-      </svg> */}
-
-      {/* <motion.div
-        animate={{ opacity: 1, x: 0 }}
-        initial={{ opacity: 0, x: -25 }}
-        transition={{ delay: 0.35 }}
-        className="flex gap-12"
-      >
-        <motion.div className="hidden items-center gap-12 xl:flex">
-          <img src={telegram} alt="telegram" />
-          <img src={github} alt="github" />
-          <img src={linkedin} alt="linkedin" />
-        </motion.div>
-      </motion.div> */}
-      {/* Title */}
-
       <motion.h1 animate={{ opacity: 1, x: 0 }}
         initial={{ opacity: 0, x: -25 }}
         transition={{ delay: 0.35 }} className="text-2xl font-bold font-logo">

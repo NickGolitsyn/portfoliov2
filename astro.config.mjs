@@ -4,13 +4,13 @@ import storyblok from '@storyblok/astro';
 import { loadEnv } from 'vite';
 import basicSsl from '@vitejs/plugin-basic-ssl';
 import tailwind from "@astrojs/tailwind";
-import vercel from "@astrojs/vercel/serverless";
+// import vercel from "@astrojs/vercel/serverless";
 const env = loadEnv("", process.cwd(), 'STORYBLOK');
 
 
 // https://astro.build/config
 export default defineConfig({
-  output: 'hybrid',
+  // output: 'hybrid',
   integrations: [storyblok({
     accessToken: env.STORYBLOK_TOKEN,
     components: {
@@ -28,5 +28,5 @@ export default defineConfig({
       https: true
     }
   },
-  adapter: vercel()
+  // adapter: vercel()
 });
