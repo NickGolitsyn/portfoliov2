@@ -11,7 +11,7 @@ const content = renderRichText(blok.content)
   <h1 class="font-bold text-7xl text-right mb-5">{blok.title}</h1>
   <p class="text-right max-w-md ml-auto text-xl font-medium">{blok.description}</p>
   <div class="flex flex-wrap gap-3 justify-end my-5">
-    {blok.stack.map((item) => (
+    {blok.stack.map((item: any) => (
       <div class="flex gap-1 bg-stone-800 py-1 px-3 opacity-100 items-center rounded-3xl border border-stone-400">
         <img src={`/logos/${item.toLowerCase()}.svg`} alt={item} class="max-h-5 max-w-[1.25rem]" />
         <p>{item}</p>
