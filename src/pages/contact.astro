@@ -1,42 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Form from '../components/Form';
 ---
 
 <Layout title="Contact">
 	<main>
-		<!-- <h1>My name is <span class="text-gradient">Nick Golitsyn</span></h1>
-		<p class="instructions bg-stone-700">
-			I am <strong>Front-end Web Developer</strong> with experience in HTML CSS & JS.<br />I graduated college in June 2023
-		</p>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="https://vocab-omega.vercel.app/"
-				title="Vocab."
-				body="Word of the day style website that focuses on building a users vocabulary."
-			/>
-			<Card
-				href="https://parish-nextjs-sanity.vercel.app/"
-				title="Parish Website"
-				body="Website for a Romainian Orthodox Church."
-			/>
-			<Card
-				href="https://kudrin.netlify.app/"
-				title="Sergey Kudrin"
-				body="Photo/Painting exhibition website for a photographer."
-			/>
-			<Card
-				href="https://trvl.netlify.app/"
-				title="TRVL"
-				body="Website for tourists to find out information about their travel destination."
-			/>
-		</ul> -->
-    <!-- <Form /> -->
     <div class="text-center">
-      <h1 class="my-3 text-3xl font-semibold text-gray-700 dark:text-gray-200">
+      <h1 class="my-3 text-3xl font-semibold text-black dark:text-white">
         Contact Me
       </h1>
-      <p class="text-gray-400 dark:text-gray-400">
+      <p class="text-stone-500 dark:text-stone-300">
         Fill up the form below to send me a message.
       </p>
     </div>
@@ -47,23 +19,23 @@ import Form from '../components/Form';
         <input type="hidden" name="redirect" value="localhost:3000/contact" />
         <input type="checkbox" name="botcheck" id="" style={{display: "none"}} />
         <div class="mb-6">
-          <label for="name" class="block mb-2 text-sm text-stone-300 dark:text-stone-300">Full Name</label>
-          <input type="text" name="name" id="name" placeholder="John Doe" required class="w-full bg-opacity-50 dark:bg-opacity-50 px-3 py-2 placeholder-stone-400 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-stone-800 dark:text-white dark:placeholder-stone-300 dark:border-stone-400 dark:focus:ring-stone-300 dark:focus:border-stone-300" />
+          <label for="name" class="block mb-2 text-sm text-stone-500 dark:text-stone-300">Full Name</label>
+          <input type="text" name="name" id="name" placeholder="Full Name" required class="w-full bg-opacity-50 dark:bg-opacity-50 px-3 py-2 placeholder-stone-400 border border-stone-300 rounded-md focus:outline-none focus:ring focus:ring-stone-200 focus:border-stone-300 dark:bg-stone-800 dark:text-white dark:placeholder-stone-300 dark:border-stone-400 dark:focus:ring-stone-300 dark:focus:border-stone-300" />
         </div>
         <div class="mb-6">
-          <label for="email" class="block mb-2 text-sm text-stone-300 dark:text-stone-300">Email Address</label>
-          <input type="email" name="email" id="email" placeholder="you@company.com" required class="w-full bg-opacity-50 dark:bg-opacity-50 px-3 py-2 placeholder-stone-400 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-stone-800 dark:text-white dark:placeholder-stone-300 dark:border-stone-400 dark:focus:ring-stone-300 dark:focus:border-stone-300" />
+          <label for="email" class="block mb-2 text-sm text-stone-500 dark:text-stone-300">Email Address</label>
+          <input type="email" name="email" id="email" placeholder="Email Address" required class="w-full bg-opacity-50 dark:bg-opacity-50 px-3 py-2 placeholder-stone-400 border border-stone-300 rounded-md focus:outline-none focus:ring focus:ring-stone-200 focus:border-stone-300 dark:bg-stone-800 dark:text-white dark:placeholder-stone-300 dark:border-stone-400 dark:focus:ring-stone-300 dark:focus:border-stone-300" />
         </div>
         <div class="mb-6">
-          <label for="phone" class="text-sm text-stone-300 dark:text-stone-300">Phone Number</label>
-          <input type="text" name="phone" id="phone" placeholder="+1 (555) 1234-567" required class="w-full bg-opacity-50 dark:bg-opacity-50 px-3 py-2 placeholder-stone-400 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-stone-800 dark:text-white dark:placeholder-stone-300 dark:border-stone-400 dark:focus:ring-stone-300 dark:focus:border-stone-300" />
+          <label for="phone" class="text-sm text-stone-500 dark:text-stone-300">Phone Number</label>
+          <input type="text" name="phone" id="phone" placeholder="Phone Number" required class="w-full bg-opacity-50 dark:bg-opacity-50 px-3 py-2 placeholder-stone-400 border border-stone-300 rounded-md focus:outline-none focus:ring focus:ring-stone-200 focus:border-stone-300 dark:bg-stone-800 dark:text-white dark:placeholder-stone-300 dark:border-stone-400 dark:focus:ring-stone-300 dark:focus:border-stone-300" />
         </div>
         <div class="mb-6">
-          <label for="message" class="block mb-2 text-sm text-stone-300 dark:text-stone-300">Your Message</label>
-          <textarea rows="5" name="message" id="message" placeholder="Your Message" class="w-full bg-opacity-50 dark:bg-opacity-50 px-3 py-2 placeholder-stone-400 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-stone-800 dark:text-white dark:placeholder-stone-300 dark:border-stone-400 dark:focus:ring-stone-300 dark:focus:border-stone-300" required></textarea>
+          <label for="message" class="block mb-2 text-sm text-stone-500 dark:text-stone-300">Your Message</label>
+          <textarea rows="5" name="message" id="message" placeholder="Your Message" class="w-full bg-opacity-50 dark:bg-opacity-50 px-3 py-2 placeholder-stone-400 border border-stone-300 rounded-md focus:outline-none focus:ring focus:ring-stone-200 focus:border-stone-300 dark:bg-stone-800 dark:text-white dark:placeholder-stone-300 dark:border-stone-400 dark:focus:ring-stone-300 dark:focus:border-stone-300" required></textarea>
         </div>
         <div class="mb-6">
-          <button type="submit" class="w-full px-3 py-4 text-white bg-stone-500 rounded-md focus:bg-indigo-600 focus:outline-none">
+          <button type="submit" class="w-full px-3 py-4 text-white dark:text-black bg-stone-800 dark:bg-stone-200 rounded-md focus:bg-indigo-600 focus:outline-none">
             Send Message
           </button>
         </div>

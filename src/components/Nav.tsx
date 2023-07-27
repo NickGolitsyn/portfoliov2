@@ -52,7 +52,7 @@ const NavLinks = ({
         key={id}
         variants={isMobile ? itemMotion : itemMotionDesktop}
         href={href}
-        className={isMobile ? "text-4xl text-white" : "text-md text-white" }
+        className={`${isMobile ? "text-4xl" : "text-md"} text-black dark:text-white`}
       >
         {name}
       </motion.a>
@@ -64,7 +64,7 @@ export default function Nav() {
   const [toggled, setToggled] = useState(false)
   const matches = useMediaQuery("(min-width: 1280px)")
   return (
-    <nav className="h-24 fixed top-0 bg-stone-800 bg-opacity-50 backdrop-blur-md w-full px-8 flex z-20 items-center justify-between pb-8 shadow-md pt-8 font-medium md:px-16 lg:px-32">
+    <nav className="h-24 fixed top-0 bg-stone-200 dark:bg-stone-800 bg-opacity-50 backdrop-blur-md w-full px-8 flex z-20 items-center justify-between pb-8 shadow-md pt-8 font-medium md:px-16 lg:px-32">
       {/* <svg
         className="absolute bottom-0 left-1/2 -translate-x-1/2  "
         width="250"
@@ -98,14 +98,17 @@ export default function Nav() {
       </motion.div> */}
       {/* Title */}
 
-      <motion.h1 animate={{ opacity: 1, x: 0 }}
+      <motion.a
+        animate={{ opacity: 1, x: 0 }}
         initial={{ opacity: 0, x: -25 }}
-        transition={{ delay: 0.35 }} className="text-2xl font-bold font-logo">
-        <a href="/">
-          <img src={ng} alt='NG' className=" h-5" />
-        </a>
-      </motion.h1>
-      <ThemeToggle />
+        transition={{ delay: 0.35 }} 
+        href="/"
+      >
+        {/* <img src={ng} alt='NG' className=" h-5" /> */}
+        <svg className="h-5 w-min" width="332" height="95" viewBox="0 0 332 95" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0.8 92V2.39999H22.176L171.04 70.624V2.39999H192.8V92H171.296L22.56 24.032V92H0.8ZM331.065 42.464V58.208C331.065 82.016 314.425 94.304 281.785 94.304H265.145C230.841 94.304 213.305 78.304 213.305 47.2C213.305 16.096 230.841 0.095993 265.145 0.095993H281.785C314.553 0.095993 331.193 11.232 331.065 33.12H308.153C308.281 23.52 298.041 18.656 277.945 18.656H268.985C247.353 18.656 235.961 28.384 235.961 47.2C235.961 66.016 247.353 75.744 268.985 75.744H277.945C297.785 75.744 308.025 69.984 308.153 58.72V58.464H263.225V42.464H331.065Z" className="fill-black dark:fill-white"/>
+        </svg>
+      </motion.a>
 
       {/* Nav Items animating in  */}
       {toggled && !matches && (
@@ -114,7 +117,7 @@ export default function Nav() {
           animate="visible"
           initial="hidden"
           className="fixed left-0 top-0  z-40 flex h-screen
-          w-full flex-col items-center  justify-center  gap-24 bg-stone-800 opacity-80 text-2xl font-bold"
+          w-full flex-col items-center  justify-center  gap-24 bg-stone-200 dark:bg-stone-800 opacity-80 text-2xl font-bold"
         >
           <NavLinks
             className=" flex flex-col gap-24 text-lg "
@@ -129,6 +132,7 @@ export default function Nav() {
         className="hidden xl:flex xl:items-center  xl:justify-center xl:gap-12 xl:text-lg   "
       >
         <NavLinks className="flex gap-12" isMobile={false} />
+        <ThemeToggle />
       </motion.div>
 
       {/* Hamburger Toggle */}
@@ -136,30 +140,33 @@ export default function Nav() {
         animate={{ opacity: 1, x: 0 }}
         initial={{ opacity: 0, x: 25 }}
         transition={{ delay: 0.35 }}
-        onClick={() => setToggled((prevToggle) => !prevToggle)}
-        className={`burger z-50 cursor-pointer space-y-1.5 xl:hidden 
-        `}
+        className="z-50 xl:hidden flex gap-10 items-center"
       >
-        <motion.span
-          animate={{ 
-            rotateZ: toggled ? 45 : 0, 
-            y: toggled ? 8 : 0, 
-            width: toggled ? 24 : 24, }}
-          className="line-1 block h-0.5 w-6 bg-content bg-white"
-        ></motion.span>
-
-        <motion.span
-          animate={{ width: toggled ? 0 : 24 }}
-          className="line-2 block h-0.5 w-6 bg-content bg-white"
-        ></motion.span>
-        <motion.span
-          animate={{
-            rotateZ: toggled ? -45 : 0,
-            y: toggled ? -8 : 0,
-            width: toggled ? 24 : 24,
-          }}
-          className="line-3 block h-0.5 w-6 bg-content bg-white"
-        ></motion.span>
+        <ThemeToggle />
+        <div 
+          onClick={() => setToggled((prevToggle) => !prevToggle)}
+          className={`burger z-50 cursor-pointer space-y-1.5 xl:hidden`}
+        >
+          <motion.span
+            animate={{ 
+              rotateZ: toggled ? 45 : 0, 
+              y: toggled ? 8 : 0, 
+              width: toggled ? 24 : 24, }}
+            className="line-1 block h-0.5 w-6 bg-content bg-black dark:bg-white"
+          ></motion.span>
+          <motion.span
+            animate={{ width: toggled ? 0 : 24 }}
+            className="line-2 block h-0.5 w-6 bg-content bg-black dark:bg-white"
+          ></motion.span>
+          <motion.span
+            animate={{
+              rotateZ: toggled ? -45 : 0,
+              y: toggled ? -8 : 0,
+              width: toggled ? 24 : 24,
+            }}
+            className="line-3 block h-0.5 w-6 bg-content bg-black dark:bg-white"
+          ></motion.span>
+        </div>
       </motion.div>
     </nav>
   )
