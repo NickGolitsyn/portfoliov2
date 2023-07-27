@@ -17,7 +17,7 @@ export default defineConfig({
         grid: 'storyblok/Grid',
         teaser: 'storyblok/Teaser',
         blogPost: 'storyblok/BlogPost',
-        projects: 'storyblok/Projects',
+        richText: 'storyblok/RichText'
       },
     }),
     react(), 

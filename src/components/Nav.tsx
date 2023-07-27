@@ -10,6 +10,7 @@ import ng from '/NGsuperwide.svg'
 import { motion } from "framer-motion"
 import { useState } from "react"
 import { useMediaQuery } from "../util/useMediaQuery"
+import ThemeToggle from "./ThemeToggle"
 
 const navMotion = {
   visible: {
@@ -104,6 +105,7 @@ export default function Nav() {
           <img src={ng} alt='NG' className=" h-5" />
         </a>
       </motion.h1>
+      <ThemeToggle />
 
       {/* Nav Items animating in  */}
       {toggled && !matches && (
