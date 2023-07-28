@@ -1,9 +1,6 @@
 import { motion } from "framer-motion"
 import back from '/back.svg'
-
-// interface ProjNavProps {
-//   link: any;
-// }
+import darkBack from '/darkBack.svg'
 
 export default function ProjNav({ link }) {
   const css = `
@@ -21,7 +18,7 @@ export default function ProjNav({ link }) {
     }
   `
   return (
-    <div className="sticky top-28 mt-36 mb-10 mx-8 flex justify-between md:mx-16 lg:mx-32">
+    <div className="sticky flex top-28 justify-between mb-5">
       <style>
         {css}
       </style>
@@ -33,7 +30,8 @@ export default function ProjNav({ link }) {
         transition={{ delay: 0.35 }}
       >
         <span className="back-arrow">
-          <img src={back} alt="back button" className="w-8 md:w-12" />
+          <img src={back} alt="back button" className="dark:hidden w-8 md:w-12" />
+          <img src={darkBack} alt="back button" className="hidden dark:block w-8 md:w-12" />
         </span>
         <span>
           <p className="font-bold back-text text-xs md:text-lg text-black dark:text-white">BACK</p>
@@ -45,7 +43,7 @@ export default function ProjNav({ link }) {
         transition={{ delay: 0.35 }} 
         className="bg-black dark:bg-white w-fit rounded-full"
       >
-        <a className="text-white dark:text-black py-3 px-5 block font-bold text-xs md:text-base href={link}" target="_blank">Visit the website</a>
+        <a className="text-white dark:text-black py-2 px-3 md:py-3 md:px-5 block font-bold text-xs md:text-base" href={link} target="_blank">Visit the website</a>
       </motion.div>
   </div>
   )

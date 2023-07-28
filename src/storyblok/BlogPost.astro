@@ -6,9 +6,10 @@ const { blok } = Astro.props
 const content = renderRichText(blok.content)
 
 ---
-{blok.link && <ProjNav link={blok.link.url} client:load />}
+
 <main {...storyblokEditable(blok)}>
-  <h1 class="font-bold text-7xl text-right mb-5 text-black dark:text-white">{blok.title}</h1>
+  {blok.link && <ProjNav link={blok.link.url} client:load />}
+  <h1 class="font-bold text-4xl md:text-7xl text-right mb-5 text-black dark:text-white">{blok.title}</h1>
   <p class="text-right max-w-md ml-auto text-xl font-medium text-black dark:text-white">{blok.description}</p>
   <div class="flex flex-wrap gap-3 justify-end my-5">
     {blok.stack && blok.stack.map((item: any) => (
