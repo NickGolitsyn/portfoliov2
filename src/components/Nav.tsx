@@ -6,6 +6,7 @@ import telegram from '/telegram.svg'
 import github from '/github.svg'
 import linkedin from '/linkedin.svg'
 import ng from '/NGsuperwide.svg'
+import darkng from '/darkNGsuperwide.svg'
 // import ng from '/NGwide.svg'
 import { motion } from "framer-motion"
 import { useState } from "react"
@@ -104,10 +105,11 @@ export default function Nav() {
         transition={{ delay: 0.35 }} 
         href="/"
       >
-        {/* <img src={ng} alt='NG' className=" h-5" /> */}
-        <svg className="h-5 w-min" width="332" height="95" viewBox="0 0 332 95" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <img src={ng} alt='NG' className="dark:hidden h-5" />
+        <img src={darkng} alt='NG' className="hidden dark:block h-5" />
+        {/* <svg className="h-5 w-min" width="332" height="95" viewBox="0 0 332 95" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M0.8 92V2.39999H22.176L171.04 70.624V2.39999H192.8V92H171.296L22.56 24.032V92H0.8ZM331.065 42.464V58.208C331.065 82.016 314.425 94.304 281.785 94.304H265.145C230.841 94.304 213.305 78.304 213.305 47.2C213.305 16.096 230.841 0.095993 265.145 0.095993H281.785C314.553 0.095993 331.193 11.232 331.065 33.12H308.153C308.281 23.52 298.041 18.656 277.945 18.656H268.985C247.353 18.656 235.961 28.384 235.961 47.2C235.961 66.016 247.353 75.744 268.985 75.744H277.945C297.785 75.744 308.025 69.984 308.153 58.72V58.464H263.225V42.464H331.065Z" className="fill-black dark:fill-white"/>
-        </svg>
+        </svg> */}
       </motion.a>
 
       {/* Nav Items animating in  */}

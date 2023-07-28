@@ -1,22 +1,24 @@
 import { useEffect, useState } from "react";
 export default function ThemeToggle() {
- const [theme, setTheme] = useState(localStorage.getItem("theme") ?? "light");
+ const [theme, setTheme] = useState(localStorage.getItem("theme") ?? "dark");
 
  const handleClick = () => {
    setTheme(theme === "light" ? "dark" : "light");
  };
 
  useEffect(() => {
-   if (theme === "dark") {
-     document.documentElement.classList.add("dark");
-   } else {
-     document.documentElement.classList.remove("dark");
-   }
-   localStorage.setItem("theme", theme);
+  console.log(theme);
+  
+  if (theme === "dark") {
+    document.documentElement.classList.add("dark");
+  } else {
+    document.documentElement.classList.remove("dark");
+  }
+  localStorage.setItem("theme", theme);
  }, [theme]);
 
  return (
-  <button title="Light" onClick={handleClick}>{theme === "light" ? 
+  <button title="theme toggle" onClick={handleClick}>{theme === "light" ? 
   (
     <svg
       xmlns="http://www.w3.org/2000/svg"
