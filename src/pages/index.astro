@@ -1,6 +1,7 @@
 ---
 export const prerender = false;
 import Layout from '../layouts/Layout.astro';
+import avatar from '/avatar2.png'
 // @ts-ignore  
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 import { useStoryblokApi } from '@storyblok/astro'
@@ -16,10 +17,6 @@ const content = data.story.content;
 
 <!-- <Layout title="Home">
 	<main>
-		<h1>My name is <span class="text-gradient">Nick Golitsyn</span></h1>
-		<p class="instructions bg-stone-700">
-			I am <strong>Front-end Web Developer</strong> with experience in HTML CSS & JS.<br />I graduated college in June 2023
-		</p>
 		<ul role="list" class="link-card-grid">
 			<Card
 				href="https://vocab-omega.vercel.app/"
@@ -44,8 +41,17 @@ const content = data.story.content;
 		</ul>
 	</main>
 </Layout> -->
-<Layout title="Projects">
+<Layout title="Home">
   <main>
+		<div class="flex justify-between items-center">
+		<h1 class="text-black dark:text-white">Hi! I'm <span class="text-gradient">Nick Golitsyn</span></h1>
+		<div class="w-16 h-16 rounded-full dark:bg-stone-200 bg-stone-200 overflow-hidden">
+			<img src={avatar} />
+		</div>
+		</div>
+		<p class="instructions text-black dark:text-white bg-stone-200 dark:bg-stone-700">
+			A <strong>Front-end Web Developer</strong> with experience in HTML CSS & JS.<br />I graduated college in June 2023
+		</p>
       <StoryblokComponent blok={content} />
   </main>
 </Layout>
@@ -67,7 +73,7 @@ const content = data.story.content;
 		-webkit-text-fill-color: transparent;
 		background-size: 400%;
 		background-position: 0%;
-		font-family: "Velodroma", sans-serif;
+		font-family: "Velodroma", sans-seri
 	}
 	.instructions {
 		line-height: 1.6;
