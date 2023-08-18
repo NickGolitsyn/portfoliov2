@@ -5,6 +5,8 @@ import avatar from '/avatar2.png'
 // @ts-ignore  
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 import { useStoryblokApi } from '@storyblok/astro'
+import BigCard from '../components/BigCard.astro';
+import PillCard from '../components/PillCard.astro';
 
 const storyblokApi = useStoryblokApi()
 
@@ -13,50 +15,121 @@ const { data } = await storyblokApi.get("cdn/stories/home", {
 });
 
 const content = data.story.content;
----
 
-<!-- <Layout title="Home">
-	<main>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="https://vocab-omega.vercel.app/"
-				title="Vocab."
-				body="Word of the day style website that focuses on building a users vocabulary."
-			/>
-			<Card
-				href="https://parish-nextjs-sanity.vercel.app/"
-				title="Parish Website"
-				body="Website for a Romainian Orthodox Church."
-			/>
-			<Card
-				href="https://kudrin.netlify.app/"
-				title="Sergey Kudrin"
-				body="Photo/Painting exhibition website for a photographer."
-			/>
-			<Card
-				href="https://trvl.netlify.app/"
-				title="TRVL"
-				body="Website for tourists to find out information about their travel destination."
-			/>
-		</ul>
-	</main>
-</Layout> -->
+const stack = [
+	'Firebase', 
+	'Astro', 
+	'HTML',
+	'CSS',
+	'JavaScript',
+	'Dart',
+	'Expo',
+	'Flutter',
+	'Hygraph',
+	'NextJS',
+	'PWA',
+	'React Native',
+	'React',
+	'Sanity',
+	'Tailwind',
+	'Excel'
+];
+
+const halfLength = Math.ceil(stack.length / 2);
+const firstHalf = stack.slice(0, halfLength);
+const secondHalf = stack.slice(halfLength);
+---
 <Layout title="Home">
+	<style>
+		@keyframes slideToLeft {
+      0% {
+        transform: translateX(150%);
+      }
+      100% {
+        transform: translateX(-150%);
+      }
+    }
+
+    @keyframes slideToRight {
+      0% {
+        transform: translateX(-150%);
+      }
+      100% {
+        transform: translateX(150%);
+      }
+    }
+
+		.to-right {
+			animation: slideToRight;
+		}
+
+		.to-left {
+			animation: slideToLeft;
+		}
+
+    /* Adjust the animation duration as needed */
+    .slide-animation {
+      animation-duration: 10s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+	</style>
   <main>
+		<!-- About me -->
 		<div class="flex justify-between items-center">
-		<h1 class="text-black dark:text-white">Hi! I'm <span class="text-gradient">Nick Golitsyn</span></h1>
-		<div class="w-16 h-16 rounded-full dark:bg-stone-200 bg-stone-200 overflow-hidden">
-			<img src={avatar} />
-		</div>
+			<h1 class="text-black dark:text-white">Hi! I'm <span class="text-gradient">Nick Golitsyn</span></h1>
+			<div class="w-16 h-16 rounded-full dark:bg-stone-200 bg-stone-200 overflow-hidden">
+				<img src={avatar} />
+			</div>
 		</div>
 		<p class="instructions text-black dark:text-white bg-stone-200 dark:bg-stone-700">
 			A <strong>Front-end Web Developer</strong> with experience in HTML CSS & JS.<br />I graduated college in June 2023
 		</p>
-      <StoryblokComponent blok={content} />
+		<!-- Resume -->
+		<div class="flex justify-center my-5">
+			<a class="text-black dark:text-white py-3 px-5 rounded-md bg-stone-200 dark:bg-stone-700 flex items-center gap-1" href="https://drive.google.com/file/d/1D7LNJhW1VEGaDKWA8JfXPtj-rexK_3lU/view?usp=sharing" target="_blank">Resume 
+				<span>
+					<img src="/externalArrow.svg" alt='external link arrow' class="dark:hidden h-5" />
+        	<img src="/darkExternalArrow.svg" alt='external link arrow' class="hidden dark:block h-5" />
+				</span>
+			</a>
+		</div>
+		<!-- Skills -->
+		<ul class="flex flex-wrap justify-center gap-3">
+				{stack.map((item) => (
+					<PillCard
+						stack={item}
+					/>
+				))}
+		</ul>
+		
+		<!-- Hobbies -->
+		<div>Hobbies</div>
+		
+		<!-- Socials -->
+		<div>Socials</div>
+		<!-- Projects -->
+		<div>
+			<ul class="link-card-grid">
+				<BigCard
+					title="Vocab"
+					body="Word of the day style website that focuses on building a users vocabulary."
+					href=""
+					stack={['NextJS', 'Firebase', 'Tailwind']}
+				/>
+			</ul>
+			<div class="flex justify-center my-5">
+				<a class="text-black dark:text-white py-3 px-5 rounded-md bg-stone-200 dark:bg-stone-700" href="/projects">Show all projects</a>
+			</div>
+		</div>
+    <!-- <StoryblokComponent blok={content} /> -->
   </main>
 </Layout>
 
 <style>
+	.text-nowrap {
+		text-wrap: nowrap
+	}
 	main {
 		margin: auto;
 		padding: 1.5rem;
@@ -97,8 +170,9 @@ const content = data.story.content;
 	}
 	.link-card-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 0.5fr));
 		gap: 1rem;
 		padding: 0;
+		justify-content: center;
 	}
 </style>

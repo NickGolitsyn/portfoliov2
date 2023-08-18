@@ -1,0 +1,13 @@
+---
+export interface Props {
+	stack: string;
+}
+
+const { stack } = Astro.props;
+---
+
+<div class="flex max-w-fit gap-1 bg-stone-300 dark:bg-stone-800 py-1 px-3 bg-opacity-80 dark:bg-opacity-80 items-center rounded-3xl border border-stone-400">
+  <img src={`/logos/${stack.toLowerCase()}.svg`} alt={stack} class="dark:hidden max-h-5 max-w-[1.25rem]" />
+  <img src={`/darklogos/${stack.toLowerCase()}.svg`} alt={stack} class="hidden dark:block max-h-5 max-w-[1.25rem]" />
+  <p class="text-black dark:text-white">{stack}</p>
+</div>

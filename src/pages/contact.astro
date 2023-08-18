@@ -16,7 +16,7 @@ import Layout from '../layouts/Layout.astro';
       <form action="https://api.web3forms.com/submit" method="POST" id="form">
         <input type="hidden" name="access_key" value={import.meta.env.FORMS_KEY} />
         <input type="hidden" name="subject" value="New Submission from nickgolitsyn.com" />
-        <input type="hidden" name="redirect" value="localhost:3000/contact" />
+        <input type="hidden" name="redirect" value="nickgolitsyn.com/contact" />
         <input type="checkbox" name="botcheck" id="" style={{display: "none"}} />
         <div class="mb-6">
           <label for="name" class="block mb-2 text-sm text-stone-500 dark:text-stone-300">Full Name</label>
