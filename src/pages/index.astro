@@ -7,6 +7,7 @@ import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 import { useStoryblokApi } from '@storyblok/astro'
 import BigCard from '../components/BigCard.astro';
 import PillCard from '../components/PillCard.astro';
+import SocialsCard from '../components/SocialsCard.astro';
 
 const storyblokApi = useStoryblokApi()
 
@@ -34,6 +35,22 @@ const stack = [
 	'Tailwind',
 	'Excel'
 ];
+
+const hobbies = [
+	'Photography',
+	'Football',
+	'Design',
+	'Piano',
+	'Choir'
+]
+
+const socials = [
+	['LinkedIn', 'https://www.linkedin.com/in/nickgolitsyn/'],
+	['Telegram', 'https://t.me/nickgolitsyn'],
+	['GitHub', 'https://github.com/NickGolitsyn/'],
+	['WhatsApp', 'https://wa.me/79852868069/'],
+	['Instagram', 'https://www.instagram.com/nickgolitsyn/']
+]
 
 const halfLength = Math.ceil(stack.length / 2);
 const firstHalf = stack.slice(0, halfLength);
@@ -77,13 +94,13 @@ const secondHalf = stack.slice(halfLength);
   <main>
 		<!-- About me -->
 		<div class="flex justify-between items-center">
-			<h1 class="text-black dark:text-white">Hi! I'm <span class="text-gradient">Nick Golitsyn</span></h1>
-			<div class="w-16 h-16 rounded-full dark:bg-stone-200 bg-stone-200 overflow-hidden">
+			<h1 class="text-black dark:text-white">hey, I'm <span class="text-gradient">Nick Golitsyn</span>👋</h1>
+			<!-- <div class="w-16 h-16 rounded-full dark:bg-stone-200 bg-stone-200 overflow-hidden">
 				<img src={avatar} />
-			</div>
+			</div> -->
 		</div>
 		<p class="instructions text-black dark:text-white bg-stone-200 dark:bg-stone-700">
-			A <strong>Front-end Web Developer</strong> with experience in HTML CSS & JS.<br />I graduated college in June 2023
+			I'm a <strong>Front-end Web Developer</strong> with experience in HTML CSS & JS.<br />I graduated IThub college in June 2023
 		</p>
 		<!-- Resume -->
 		<div class="flex justify-center my-5">
@@ -95,33 +112,61 @@ const secondHalf = stack.slice(halfLength);
 			</a>
 		</div>
 		<!-- Skills -->
-		<ul class="flex flex-wrap justify-center gap-3">
+		<section class="flex flex-col items-center my-5">
+			<h1 class="text-black dark:text-white !mb-3">Skills</h1>
+			<ul class="flex flex-wrap justify-center gap-3">
 				{stack.map((item) => (
 					<PillCard
-						stack={item}
+						item={item}
+						hasIcon={true}
 					/>
 				))}
-		</ul>
+			</ul>
+		</section>
 		
 		<!-- Hobbies -->
-		<div>Hobbies</div>
+		<section class="flex flex-col items-center my-5">
+			<h1 class="text-black dark:text-white !mb-3">Hobbies</h1>
+			<ul class="flex flex-wrap justify-center gap-3">
+				{hobbies.map((item) => (
+					<PillCard 
+						item={item}
+						hasIcon={false}
+					/>
+				))}
+			</ul>
+		</section>
 		
 		<!-- Socials -->
-		<div>Socials</div>
-		<!-- Projects -->
-		<div>
-			<ul class="link-card-grid">
-				<BigCard
-					title="Vocab"
-					body="Word of the day style website that focuses on building a users vocabulary."
-					href=""
-					stack={['NextJS', 'Firebase', 'Tailwind']}
-				/>
+		<section class="flex flex-col items-center my-5">
+			<h1 class="text-black dark:text-white !mb-3">Socials</h1>
+			<ul class="flex flex-wrap justify-center gap-3">
+				{socials.map((item) => (
+					<SocialsCard
+						item={item[0]}
+						href={item[1]}
+					/>
+				))}
 			</ul>
-			<div class="flex justify-center my-5">
-				<a class="text-black dark:text-white py-3 px-5 rounded-md bg-stone-200 dark:bg-stone-700" href="/projects">Show all projects</a>
+		</section>
+
+		<!-- Projects -->
+		<section class="flex flex-col items-center my-5">
+			<h1 class="text-black dark:text-white !mb-3">Projects</h1>
+			<div class="w-full">
+				<ul class="link-card-grid">
+					<BigCard
+						title="Vocab"
+						body="Word of the day style website that focuses on building a users vocabulary."
+						href=""
+						stack={['NextJS', 'Firebase', 'Tailwind']}
+					/>
+				</ul>
+				<div class="flex justify-center my-5">
+					<a class="text-black dark:text-white py-3 px-5 rounded-md bg-stone-200 dark:bg-stone-700" href="/projects">Show all projects</a>
+				</div>
 			</div>
-		</div>
+		</section>
     <!-- <StoryblokComponent blok={content} /> -->
   </main>
 </Layout>

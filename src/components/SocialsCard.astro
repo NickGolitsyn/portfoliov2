@@ -1,0 +1,16 @@
+---
+export interface Props {
+	item: string;
+  href: string;
+}
+
+const { item, href } = Astro.props;
+---
+
+<div class="cursor-pointer max-w-fit bg-stone-200 dark:bg-stone-700 hover:bg-stone-300 hover:dark:bg-stone-800 py-1 px-3 bg-opacity-80 dark:bg-opacity-80 items-center rounded-md border border-stone-400">
+  <a href={href} target="_blank" class="flex gap-1 items-center">
+    <img src={`/socials/${item.toLowerCase()}.svg`} alt={item} class="dark:hidden max-h-5 max-w-[1.25rem]" />
+    <img src={`/darksocials/${item.toLowerCase()}.svg`} alt={item} class="hidden dark:block max-h-5 max-w-[1.25rem]" />
+    <p class="text-black dark:text-white">{item}</p>
+  </a>
+</div>
