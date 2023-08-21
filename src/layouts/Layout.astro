@@ -1,6 +1,6 @@
 ---
 import Nav from '../components/Nav'
-// import glow from '/glow3.svg'
+import Footer from '../components/Footer.astro';
 import glow from '/glow3.svg'
 export interface Props {
 	title: string;
@@ -19,20 +19,9 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<script is:inline>
-			// const isDarkMode = localStorage.getItem('theme') ?? 'dark';
-			// console.log(localStorage);
-			// const theme = isDarkMode !== 'dark' ? '' : 'dark';
-			// document.querySelector("html").className = theme;
-			// Check if the user prefers dark mode
 			const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-			// Check if there's a theme set in localStorage
 			const storedTheme = localStorage.getItem('theme');
-			console.log('Storage' + storedTheme);
-			// Determine the theme to use
 			const theme = storedTheme ?? (prefersDarkMode ? 'dark' : 'light');
-			console.log('Theme' + theme);
-		
-			// Set the theme class on the <html> element
 			document.querySelector('html').className = theme;
 		</script>
 	</head>
@@ -41,6 +30,7 @@ const { title } = Astro.props;
 		<img src={glow} alt="glow" class="-z-10 background-glow right-1/2 top-0 absolute dark:mix-blend-hard-light" />
 		<div class="mb-24"></div>
 		<slot />
+		<Footer />
 	</body>
 </html>
 <style is:global>
@@ -57,6 +47,7 @@ const { title } = Astro.props;
 	}
 	html {
 		font-family: system-ui, sans-serif;
+		scroll-behavior: smooth;
 	}
 	body {
 		overflow-x: hidden;

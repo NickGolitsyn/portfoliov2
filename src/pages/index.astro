@@ -8,6 +8,7 @@ import { useStoryblokApi } from '@storyblok/astro'
 import BigCard from '../components/BigCard.astro';
 import PillCard from '../components/PillCard.astro';
 import SocialsCard from '../components/SocialsCard.astro';
+import Button from '../components/Button.astro';
 
 const storyblokApi = useStoryblokApi()
 
@@ -102,15 +103,14 @@ const secondHalf = stack.slice(halfLength);
 		<p class="instructions text-black dark:text-white bg-stone-200 dark:bg-stone-700">
 			I'm a <strong>Front-end Web Developer</strong> with experience in HTML CSS & JS.<br />I graduated IThub college in June 2023
 		</p>
+
 		<!-- Resume -->
-		<div class="flex justify-center my-5">
-			<a class="text-black dark:text-white py-3 px-5 rounded-md bg-stone-200 dark:bg-stone-700 flex items-center gap-1" href="https://drive.google.com/file/d/1D7LNJhW1VEGaDKWA8JfXPtj-rexK_3lU/view?usp=sharing" target="_blank">Resume 
-				<span>
-					<img src="/externalArrow.svg" alt='external link arrow' class="dark:hidden h-5" />
-        	<img src="/darkExternalArrow.svg" alt='external link arrow' class="hidden dark:block h-5" />
-				</span>
-			</a>
-		</div>
+		<Button
+			text='Resume'
+			href="https://drive.google.com/file/d/1D7LNJhW1VEGaDKWA8JfXPtj-rexK_3lU/view?usp=sharing"
+			isExternal={true}
+		/>
+
 		<!-- Skills -->
 		<section class="flex flex-col items-center my-5">
 			<h1 class="text-black dark:text-white !mb-3">Skills</h1>
@@ -162,9 +162,10 @@ const secondHalf = stack.slice(halfLength);
 						stack={['NextJS', 'Firebase', 'Tailwind']}
 					/>
 				</ul>
-				<div class="flex justify-center my-5">
-					<a class="text-black dark:text-white py-3 px-5 rounded-md bg-stone-200 dark:bg-stone-700" href="/projects">Show all projects</a>
-				</div>
+				<Button 
+					text='Show all projects'
+					href='/projects'
+				/>
 			</div>
 		</section>
     <!-- <StoryblokComponent blok={content} /> -->

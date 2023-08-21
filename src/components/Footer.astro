@@ -1,0 +1,32 @@
+---
+import SocialsCard from "./SocialsCard.astro";
+
+const socials = [
+	['LinkedIn', 'https://www.linkedin.com/in/nickgolitsyn/'],
+	['Telegram', 'https://t.me/nickgolitsyn'],
+	['GitHub', 'https://github.com/NickGolitsyn/'],
+	['WhatsApp', 'https://wa.me/79852868069/'],
+	['Instagram', 'https://www.instagram.com/nickgolitsyn/']
+]
+---
+
+<footer class=" bg-stone-900 py-10">
+  <ul class="flex flex-wrap justify-center gap-3 mt-5">
+    {socials.map((item) => (
+      <SocialsCard
+        item={item[0]}
+        href={item[1]}
+      />
+    ))}
+  </ul>
+  <div onclick="window.scrollTo(0, 0);" id="toTop" class="to-top" style="display: block;">top</div>
+  <div class="flex justify-center my-5 cursor-pointer" onclick="window.scrollTo(0, 0);">
+    <p class="text-black dark:text-white py-3 px-5 rounded-md bg-stone-200 dark:bg-stone-700 flex items-center gap-1">
+      To top
+        <span>
+          <img src="/externalArrow.svg" alt='external link arrow' class="dark:hidden h-5" />
+          <img src="/darkExternalArrow.svg" alt='external link arrow' class="hidden dark:block h-5" />
+        </span>
+      </p>
+  </div>
+</footer>

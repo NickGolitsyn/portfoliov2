@@ -1,5 +1,15 @@
 ---
+import SocialsCard from '../components/SocialsCard.astro';
 import Layout from '../layouts/Layout.astro';
+
+const socials = [
+	['LinkedIn', 'https://www.linkedin.com/in/nickgolitsyn/'],
+	['Telegram', 'https://t.me/nickgolitsyn'],
+	['GitHub', 'https://github.com/NickGolitsyn/'],
+	['WhatsApp', 'https://wa.me/79852868069/'],
+	['Instagram', 'https://www.instagram.com/nickgolitsyn/']
+]
+
 ---
 
 <Layout title="Contact">
@@ -9,14 +19,24 @@ import Layout from '../layouts/Layout.astro';
         Contact Me
       </h1>
       <p class="text-stone-500 dark:text-stone-300">
-        Fill up the form below to send me a message.
+        Complete the form below to send me a message or reach out to me on social media through the provided links.
       </p>
     </div>
+		<div>
+			<ul class="flex flex-wrap justify-center gap-3 mt-5">
+				{socials.map((item) => (
+					<SocialsCard
+						item={item[0]}
+						href={item[1]}
+					/>
+				))}
+			</ul>
+		</div>
     <div class="my-7 md:m-7">
       <form action="https://api.web3forms.com/submit" method="POST" id="form">
         <input type="hidden" name="access_key" value={import.meta.env.FORMS_KEY} />
         <input type="hidden" name="subject" value="New Submission from nickgolitsyn.com" />
-        <input type="hidden" name="redirect" value="nickgolitsyn.com/contact" />
+        <input type="hidden" name="redirect" value="https://nickgolitsyn.com/contact" />
         <input type="checkbox" name="botcheck" id="" style={{display: "none"}} />
         <div class="mb-6">
           <label for="name" class="block mb-2 text-sm text-stone-500 dark:text-stone-300">Full Name</label>
@@ -41,9 +61,11 @@ import Layout from '../layouts/Layout.astro';
         </div>
         <p class="text-base text-center text-gray-400" id="result"></p>
       </form>
+			<script src="https://web3forms.com/client/script.js" async defer></script>
     </div>
 	</main>
 </Layout>
+
 
 <style>
 	main {
