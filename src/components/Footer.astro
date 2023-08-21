@@ -8,25 +8,64 @@ const socials = [
 	['WhatsApp', 'https://wa.me/79852868069/'],
 	['Instagram', 'https://www.instagram.com/nickgolitsyn/']
 ]
+
+const navLinks = [
+  { name: "Home", href: "/", id: 1 },
+  { name: "Projects", href: "/projects", id: 2 },
+  { name: "Contact", href: "/contact", id: 3 },
+]
+
 ---
 
-<footer class=" bg-stone-900 py-10">
-  <ul class="flex flex-wrap justify-center gap-3 mt-5">
-    {socials.map((item) => (
-      <SocialsCard
-        item={item[0]}
-        href={item[1]}
-      />
-    ))}
-  </ul>
-  <div onclick="window.scrollTo(0, 0);" id="toTop" class="to-top" style="display: block;">top</div>
-  <div class="flex justify-center my-5 cursor-pointer" onclick="window.scrollTo(0, 0);">
-    <p class="text-black dark:text-white py-3 px-5 rounded-md bg-stone-200 dark:bg-stone-700 flex items-center gap-1">
-      To top
-        <span>
-          <img src="/externalArrow.svg" alt='external link arrow' class="dark:hidden h-5" />
-          <img src="/darkExternalArrow.svg" alt='external link arrow' class="hidden dark:block h-5" />
+<footer class="bg-stone-100 dark:bg-stone-900 py-10">
+  <div class="flex flex-row justify-around items-center">
+    <ul class="flex flex-col my-5">
+      {navLinks.map(({ name, href }) => (
+        <li>
+          <a
+            href={href}
+            class={`text-black dark:text-white`}
+          >
+            {name}
+          </a>
+        </li>
+      ))}
+    </ul>
+    <ul class="flex flex-wrap flex-col justify-center gap-3 my-5 max-h-40">
+      {socials.map((item) => (
+        <li>
+          <a href={item[1]} target="_blank" class="flex gap-1 items-center">
+            <img src={`/socials/${item[0].toLowerCase()}.svg`} alt={item[0]} class="dark:hidden max-h-5 max-w-[1.25rem]" />
+            <img src={`/darksocials/${item[0].toLowerCase()}.svg`} alt={item[0]} class="hidden dark:block max-h-5 max-w-[1.25rem]" />
+            <p class="text-black dark:text-white">{item[0]}</p>
+          </a>
+        </li>
+      ))}
+      <li>
+        <a href='tel:+447403525139' target="_blank" class="flex gap-1 items-center">
+          <img src={`/socials/phone.svg`} alt='phone' class="dark:hidden max-h-5 max-w-[1.25rem]" />
+          <img src={`/darksocials/phone.svg`} alt='phone' class="hidden dark:block max-h-5 max-w-[1.25rem]" />
+          <p class="text-black dark:text-white">+447403525139</p>
+        </a>
+      </li>
+      <li>
+        <a href='mailto:golitsynnick@gmail.com' target="_blank" class="flex gap-1 items-center">
+          <img src={`/socials/email.svg`} alt='email' class="dark:hidden max-h-5 max-w-[1.25rem]" />
+          <img src={`/darksocials/email.svg`} alt='email' class="hidden dark:block max-h-5 max-w-[1.25rem]" />
+          <p class="text-black dark:text-white">golitsynnick@gmail.com</p>
+        </a>
+      </li>
+    </ul>
+    <div class="flex justify-center my-5 cursor-pointer" onclick="window.scrollTo(0, 0);">
+      <p class="text-black dark:text-white py-3 px-5 rounded-md bg-stone-200 dark:bg-stone-700 flex items-center gap-1">
+        To top
+        <span class="material-symbols-outlined">
+          arrow_upward
         </span>
       </p>
+    </div>
+  </div>
+  <div class="flex justify-center my-5">
+    <p class="text-stone-500 dark:text-stone-400 text-xs">DESIGN & CODE BY MYSELF</p>
   </div>
 </footer>
