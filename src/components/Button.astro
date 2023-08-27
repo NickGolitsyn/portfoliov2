@@ -8,7 +8,7 @@ export interface Props {
 const { text, href, isExternal } = Astro.props;
 ---
 
-<div class="flex justify-center my-5">
+<div class="flex justify-center my-5 link-button p-1 rounded-lg mx-auto">
   <a class="text-black dark:text-white py-3 px-5 rounded-md bg-stone-200 dark:bg-stone-700 flex items-center gap-1" href={href} target="_blank">
     {text}
     {isExternal && (
@@ -18,3 +18,34 @@ const { text, href, isExternal } = Astro.props;
     )}
   </a>
 </div>
+
+<style>
+  .link-button {
+		display: flex;
+    width: fit-content;
+		background-size: 400%;
+		background-position: 100%;
+		transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+		/* box-shadow: 0 4px 6px -1px #1A3f3f46, 0 2px 4px -2px #1A3f3f46; */
+  }
+  .link-button > a {
+		text-decoration: none;
+		line-height: 1.4;
+		padding: 1rem 1.3rem;
+		border-radius: 0.35rem;
+		color: #ffffff;
+		opacity: 0.8;
+	}
+  .link-button:is(:hover, :focus-within) {
+		background-position: 0;
+    width: fit-content;
+		background-image: var(--accent-gradient);
+	}
+	.link-button:is(:hover, :focus-within) h2 {
+		color: rgb(var(--accent));
+	}
+	.link-button:is(:hover, :focus-within) span {
+		transition: transform 0.5s ease-out;
+		transform: translateX(2px) translateY(-2px);
+	}
+</style>

@@ -3,11 +3,13 @@ import SocialsCard from '../components/SocialsCard.astro';
 import Layout from '../layouts/Layout.astro';
 
 const socials = [
-	['LinkedIn', 'https://www.linkedin.com/in/nickgolitsyn/'],
-	['Telegram', 'https://t.me/nickgolitsyn'],
-	['GitHub', 'https://github.com/NickGolitsyn/'],
-	['WhatsApp', 'https://wa.me/79852868069/'],
-	['Instagram', 'https://www.instagram.com/nickgolitsyn/']
+	{ name: 'LinkedIn', href: 'https://www.linkedin.com/in/nickgolitsyn/'},
+	{ name: 'Telegram', href: 'https://t.me/nickgolitsyn'},
+	{ name: 'GitHub', href: 'https://github.com/NickGolitsyn/'},
+	{ name: 'WhatsApp', href: 'https://wa.me/79852868069/'},
+	{ name: 'Instagram', href: 'https://www.instagram.com/nickgolitsyn/'},
+	{ name: '+447403525139', href: 'tel:+447403525139', source: 'phone'},
+	{ name: 'golitsynnick@gmail.com', href: 'mailto:golitsynnick@gmail.com', source: 'email'},
 ]
 
 ---
@@ -19,15 +21,16 @@ const socials = [
         Contact Me
       </h1>
       <p class="text-stone-500 dark:text-stone-300">
-        Complete the form below to send me a message or reach out to me on social media through the provided links.
+        Complete the form below to send me a message or reach out to me through the provided links.
       </p>
     </div>
 		<div>
 			<ul class="flex flex-wrap justify-center gap-3 mt-5">
-				{socials.map((item) => (
+				{socials.map(({ name, href, source }) => (
 					<SocialsCard
-						item={item[0]}
-						href={item[1]}
+						name={name}
+						href={href}
+						source={source}
 					/>
 				))}
 			</ul>

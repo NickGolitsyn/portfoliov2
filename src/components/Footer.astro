@@ -1,12 +1,10 @@
 ---
-import SocialsCard from "./SocialsCard.astro";
-
 const socials = [
-	['LinkedIn', 'https://www.linkedin.com/in/nickgolitsyn/'],
-	['Telegram', 'https://t.me/nickgolitsyn'],
-	['GitHub', 'https://github.com/NickGolitsyn/'],
-	['WhatsApp', 'https://wa.me/79852868069/'],
-	['Instagram', 'https://www.instagram.com/nickgolitsyn/']
+	{ name: 'LinkedIn', href: 'https://www.linkedin.com/in/nickgolitsyn/'},
+	{ name: 'Telegram', href: 'https://t.me/nickgolitsyn'},
+	{ name: 'GitHub', href: 'https://github.com/NickGolitsyn/'},
+	{ name: 'WhatsApp', href: 'https://wa.me/79852868069/'},
+	{ name: 'Instagram', href: 'https://www.instagram.com/nickgolitsyn/'},
 ]
 
 const navLinks = [
@@ -18,8 +16,8 @@ const navLinks = [
 ---
 
 <footer class="bg-stone-100 dark:bg-stone-900 py-10">
-  <div class="flex flex-row justify-around items-center">
-    <ul class="flex flex-col my-5">
+  <div class="flex flex-row justify-around items-center footer-container">
+    <ul class="flex flex-col my-5 opacity-80">
       {navLinks.map(({ name, href }) => (
         <li>
           <a
@@ -31,13 +29,13 @@ const navLinks = [
         </li>
       ))}
     </ul>
-    <ul class="flex flex-wrap flex-col justify-center gap-3 my-5 max-h-40">
-      {socials.map((item) => (
+    <ul class="flex flex-wrap flex-col justify-center gap-3 my-5 max-h-40 opacity-80">
+      {socials.map(({ name, href }) => (
         <li>
-          <a href={item[1]} target="_blank" class="flex gap-1 items-center">
-            <img src={`/socials/${item[0].toLowerCase()}.svg`} alt={item[0]} class="dark:hidden max-h-5 max-w-[1.25rem]" />
-            <img src={`/darksocials/${item[0].toLowerCase()}.svg`} alt={item[0]} class="hidden dark:block max-h-5 max-w-[1.25rem]" />
-            <p class="text-black dark:text-white">{item[0]}</p>
+          <a href={href} target="_blank" class="flex gap-1 items-center">
+            <img src={`/socials/${name.toLowerCase()}.svg`} alt={name} class="dark:hidden max-h-5 max-w-[1.25rem]" />
+            <img src={`/darksocials/${name.toLowerCase()}.svg`} alt={name} class="hidden dark:block max-h-5 max-w-[1.25rem]" />
+            <p class="text-black dark:text-white">{name}</p>
           </a>
         </li>
       ))}
@@ -56,7 +54,7 @@ const navLinks = [
         </a>
       </li>
     </ul>
-    <div class="flex justify-center my-5 cursor-pointer" onclick="window.scrollTo(0, 0);">
+    <div class="flex justify-center my-5 cursor-pointer link-button p-1 rounded-lg w-fit mx-0" onclick="window.scrollTo(0, 0);">
       <p class="text-black dark:text-white py-3 px-5 rounded-md bg-stone-200 dark:bg-stone-700 flex items-center gap-1">
         To top
         <span class="material-symbols-outlined">
@@ -65,7 +63,50 @@ const navLinks = [
       </p>
     </div>
   </div>
-  <div class="flex justify-center my-5">
+  <div class="flex items-center my-5 flex-col">
     <p class="text-stone-500 dark:text-stone-400 text-xs">DESIGN & CODE BY MYSELF</p>
+    <p class="text-stone-500 dark:text-stone-400 text-xs">&copy; 2023 NICK GOLITSYN. All Rights Reserved.</p>
   </div>
 </footer>
+
+<style>
+  .link-button {
+		display: flex;
+		background-size: 400%;
+		background-position: 100%;
+		transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+		/* box-shadow: 0 4px 6px -1px #1A3f3f46, 0 2px 4px -2px #1A3f3f46; */
+  }
+  .link-button > p {
+		text-decoration: none;
+		line-height: 1.4;
+		padding: 1rem 1.3rem;
+		border-radius: 0.35rem;
+		color: #ffffff;
+		opacity: 0.8;
+	}
+  .link-button:is(:hover, :focus-within) {
+		background-position: 0;
+		background-image: var(--accent-gradient);
+	}
+	.link-button:is(:hover, :focus-within) h2 {
+		color: rgb(var(--accent));
+	}
+	.link-button:is(:hover, :focus-within) span {
+		transition: transform 0.5s ease-out;
+		transform: translateY(-2px);
+	}
+  @media only screen and (max-width: 800px) {
+    .footer-container {
+      flex-direction: column !important;
+    }
+    .footer-container ul:nth-child(2) {
+      transform: scale(0.8);
+    }
+  }
+  @media only screen and (max-width: 333px) {
+    .footer-container ul:nth-child(2) {
+      transform: scale(0.75);
+    }
+  }
+</style>
