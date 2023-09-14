@@ -9,14 +9,15 @@ const { text, href, isExternal } = Astro.props;
 ---
 
 <div class="flex justify-center my-5 link-button p-1 rounded-lg mx-auto">
-  <a class="text-black dark:text-white py-3 px-5 rounded-md bg-stone-200 dark:bg-stone-700 flex items-center gap-1" href={href} target="_blank">
+  {isExternal && (<a class="text-black dark:text-white py-3 px-5 rounded-md bg-stone-200 dark:bg-stone-700 flex items-center gap-1" href={href} target="_blank">
     {text}
-    {isExternal && (
-      <span class="material-symbols-outlined">
-        arrow_outward
-      </span>
-    )}
-  </a>
+		<span class="material-symbols-outlined">
+			arrow_outward
+		</span>
+  </a>)}
+	{!isExternal && (<a class="text-black dark:text-white py-3 px-5 rounded-md bg-stone-200 dark:bg-stone-700 flex items-center gap-1" href={href}>
+    {text}
+  </a>)}
 </div>
 
 <style>
